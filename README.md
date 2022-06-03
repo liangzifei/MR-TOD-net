@@ -11,4 +11,6 @@ The spacial matched dMRI and TOD data is uploaded. It is provided to train new n
 The target TOD is provided as https://osf.io/3c2xq/
 The matched dMRI data is provided as https://osf.io/hda8r/
 
-
+## Tractography streamlines resources
+The original fibers from Allen connectivity program that generated the TOD is uploaded as https://osf.io/npg2q/
+Our whole-brain streamline fibers was uploaded as https://osf.io/npg2q/
