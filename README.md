@@ -1,7 +1,7 @@
 # MR-TOD-net
 MR-TOD is to predict the voxel_wise axonal orientations distribution(TOD) from RAW diffusion MRI signals using deep learning
 
-# How to use MR-TOD-Net?
+## How to use MR-TOD-Net?
 1. Predict the TOD from diffusion MRI without training:
 Use our trained deep neural networks to predict FOD from RAW diffusion MRI signals, by input the same graindient scanned data.
 Our trained model uploaded as https://osf.io/hda8r/
