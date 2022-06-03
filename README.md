@@ -19,4 +19,4 @@ The matched dMRI data is provided as https://osf.io/hda8r/
 ## Tractography streamlines resources
 The original fibers from Allen connectivity program that generated the TOD is uploaded as https://osf.io/npg2q/
 
-Our whole-brain streamline fibers was uploaded as https://osf.io/npg2q/
+Our whole-brain streamline fibers was uploaded as https://osf.io/m98wn/
