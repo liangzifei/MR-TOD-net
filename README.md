@@ -51,11 +51,34 @@ The figure below gives examples of coregistered MRI_TOD. Here, we overlap the TO
 
 ## 4.2 network training
 Once co-registered MRI and target histological data are ready, use demo_trainingPrep.m in Matlab to prepare training samples for the next step.
-### 1) Run training generation code: Generate_train.m
+### 1) Run training generation code under Matlab-CODE: Generate_train.m
 Within the code the user need to modify the following part.
 ```
 files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim');     <--- directory of subject data used for training.
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif']).  <--- diffusion data used for training.
 tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(sample_img).name,'.mif']);   <--- target TOD data used for training.
 ```
+The code will generate and save .npy file for the next step training.
+
+### 2) Run deep learning code under CODE to train the neural network: Train.py
+
+Within the code the user need to modify the following part as their own folders.
+```
+ parser.add_argument('-i', '--input_dir', action='store', dest='input_dir',
+                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/' ,
+                    help='Path for input images')
+
+parser.add_argument('-tgt', '--tgt_dir', action='store', dest='tgt_dir',
+                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/',
+                        help='Path for input images')
+                    
+parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./output/' ,
+                    help='Path for Output images')
+    
+parser.add_argument('-m', '--model_save_dir', action='store', dest='model_save_dir', default='./model/' ,
+                    help='Path for model')
+```
+
+
+
 ## 4.3 network testing
