@@ -127,7 +127,7 @@ Users can modify the following as their own paths:
                     help='Path for model')
 ```
 
-### 3) Run the restruction code under /atlab-CODE: Generate_test_Recon.m
+### 3) Run the restruction code under /Matlab-CODE: Generate_test_Recon.m
 As the network is voxel-wised processing, it is required to reconstruct the entire 3d TOD map by packing all the voxels to the original subject space.
 Users can modify their own paths:
 ```
