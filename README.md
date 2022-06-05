@@ -54,8 +54,8 @@ Once co-registered MRI and target histological data are ready, use demo_training
 ### 1) Run training generation code: Generate_train.m
 Within the code the user need to modify the following part.
 ```
-files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim');
-dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
-tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(sample_img).name,'.mif']);
+files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim');     <--- directory of subject data used for training.
+dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif']).  <--- diffusion data used for training.
+tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(sample_img).name,'.mif']);   <--- target TOD data used for training.
 ```
 ## 4.3 network testing
