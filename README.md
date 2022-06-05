@@ -54,7 +54,7 @@ Once co-registered MRI and target histological data are ready, use demo_training
 ### 1) Run training generation code under Matlab-CODE: Generate_train.m
 Within the code the user need to modify the following part.
 ```
-files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim');     <--- directory of subject data used for training.
+files = dir('.\CODE\Kim');     <--- directory of subject data used for training.
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif']).  <--- diffusion data used for training.
 tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(sample_img).name,'.mif']);   <--- target TOD data used for training.
 ```
@@ -65,17 +65,17 @@ The code will generate and save .npy file for the next step training.
 Within the code the user need to modify the following part as their own folders.
 ```
  parser.add_argument('-i', '--input_dir', action='store', dest='input_dir',
-                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/' ,
+                        default='./Matlab-CODE/' ,
                     help='Path for input images').              <--- The path that saved last step .npy training diffusion data
 
 parser.add_argument('-tgt', '--tgt_dir', action='store', dest='tgt_dir',
-                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/',
+                        default='./Matlab-CODE/',
                         help='Path for input images').          <--- The path that saved last step .npy training TOD data
                     
-parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./output/' ,
+parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./CODE/output/' ,
                     help='Path for Output images')              <--- The path that saved output data
     
-parser.add_argument('-m', '--model_save_dir', action='store', dest='model_save_dir', default='./model/' ,
+parser.add_argument('-m', '--model_save_dir', action='store', dest='model_save_dir', default='./CODE/model/' ,
                     help='Path for model')                      <--- The path that saved training model
 ```
 Some additional parameters that can be updated as the following:
@@ -95,7 +95,7 @@ After training the saved model will be saved in ./model and our pre-trained mode
 ### 1) Run testing generation code under Matlab-CODE: Generate_test.m
 Within the code the user need to modify the following part as their own folders.
 ```
-files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim\tJN*');
+files = dir('.\Code\Kim\tJN*');
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
 writeNPY(data,'R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\DeepNet_Learn\test_input.npy');
 ```
