@@ -46,12 +46,16 @@ Pytorch (Python 3.6)
 ## 4.1 Data Preparation
 MR-TOD takes co-registered Diffusion MRI and target TOD map for training and testing. You can find our 3D diffusion MRI(https://osf.io/hda8r/) and matched TOD link (https://osf.io/3c2xq/). Details on MRI data acquistion, source of Tracer steramlines data, and co-registration steps can be found in our manuscript (doi: https://doi.org/10.1101/2022.06.02.492838). If you plan to use our trained networks without modifications, it is important to use the same image acquisition protocols.
 
-The figure below gives examples of coregistered MRI_TOD. Here, we overlap the TOD from Allen on our subjects.
+The figure below gives examples of coregistered MRI_TOD. Here, we overlap the TOD obtained from Allen tracer streamlines on our subjects.
 
 
 ## 4.2 network training
 Once co-registered MRI and target histological data are ready, use demo_trainingPrep.m in Matlab to prepare training samples for the next step.
-
-
-
+### 1) Run training generation code: Generate_train.m
+Within the code the user need to modify the following part.
+'''
+files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim');
+dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
+tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(sample_img).name,'.mif']);
+'''
 ## 4.3 network testing
