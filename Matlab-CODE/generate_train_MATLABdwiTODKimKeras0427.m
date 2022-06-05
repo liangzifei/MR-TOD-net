@@ -73,6 +73,6 @@ label = label(:, :,:, :, order);
 %%
 % save .npy file for pytocrh training
 data = permute(data,[5,1,2,3,4]);
-writeNPY(data,'input.npy');
+writeNPY(data,'.\Matlab-CODE\input.npy');
 label = permute(label,[5,1,2,3,4]);% label = label;
-writeNPY(label,'output.npy');
+writeNPY(label,'.\Matlab-CODE\output.npy');
