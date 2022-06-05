@@ -78,7 +78,17 @@ parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', def
 parser.add_argument('-m', '--model_save_dir', action='store', dest='model_save_dir', default='./model/' ,
                     help='Path for model')
 ```
+Some additional parameters that can be updated as following:
 
+```
+    parser.add_argument('-n', '--number_of_images', action='store', dest='number_of_images', default=870000,
+                    help='Number of Images', type= int)
+                    
+    parser.add_argument('-r', '--train_test_ratio', action='store', dest='train_test_ratio', default=0.95,
+                    help='Ratio of train and test Images', type=float)
+                    
+    image_shape = (3,3,3, 60)
+```
 
 
 ## 4.3 network testing
