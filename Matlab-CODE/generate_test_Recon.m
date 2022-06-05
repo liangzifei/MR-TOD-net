@@ -1,15 +1,20 @@
+%reconstruct 3d TOD map from the neural network output vector file .npy
+clc;clear;
+repeat = 1;
+sample_img = 1;
+
 function flag = generate_test_Recon(repeat, sample_img)
 %%
 %loop several times for the data generate.
 %%
-files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim\tJN*');
+files = dir('.\Matlab-CODE\Kim\tJN*');
 % Get a logical vector that tells which is a directory.
 % dirFlags = [files.isdir];
 % Extract only those that are directories.
 folder_list = files;
 % folder_list = dir(['R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kaffman_Exp55\1*']);
-folder_dwi =['R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim\'];
-% folder_tod = ['R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kaffman_Exp55\Z_todVersions\TOD_fromTCK_lmax6\'];
+folder_dwi =['.\Matlab-CODE\Kim\'];
+% folder_tod = ['.\TOD_fromTCK_lmax6\'];
 %% start loop %%%%%%%%%%%%%%%%
 halfsize_input = 1;
 stride = 1;
@@ -17,12 +22,10 @@ count =0;
 %%
 slice0 =(repeat-1)*60+41;
 %%
-
-tod_img = read_mrtrix(['R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim\Z_tod',...
+tod_img = read_mrtrix(['.\Matlab-CODE\Kim\Z_tod',...
     '\tod_fromtckTODp60_lmax6_to',folder_list(sample_img).name,'.mif']);
 %%
-YPred = readNPY(['K:\SRCNN_deltADC\Pytorch_code\Keras-SRGAN\',...
-    'SR3d\Keras-Resnet-dwi2fod\output\Test_output_fod.npy']);
+YPred = readNPY(['.\CODE\output\Test_output_fod.npy']);
 % label = readNPY(['R:\zhangj18lab\zhangj18labspace\Zifei_Data\',...
 %     'MouseHuman_proj\DeepNet_Learn\test_output.npy']);
 
@@ -59,7 +62,7 @@ for slice=slice0:slice0+60%C-1%1+halfsize_input : stride : C-halfsize_input
     end
 end
 tod_img.data = tod_data;
-write_mrtrix(tod_img,['R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\DeepNet_Learn\Recon_Tod',num2str(slice0),'-',num2str(slice0+60),'_t35b.mif']);
+write_mrtrix(tod_img,['.\Recon_Tod',num2str(slice0),'-',num2str(slice0+60),'_t35b.mif']);
 % tod_img.data = ref_data;
-% write_mrtrix(tod_img,['R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\DeepNet_Learn\Ref_TOD',num2str(slice),'-',num2str(slice+20),'_702FC.mif']);
+% write_mrtrix(tod_img,['.\Ref_TOD',num2str(slice),'-',num2str(slice+20),'_702FC.mif']);
 flag = 1
