@@ -6,7 +6,7 @@
 #usage           :Network for Deep learing from MRI to TOD
 #python_version  :3.6
 
-from Network import Generator, Discriminator
+from Network import Generator
 import Utils_model, Utils
 from Utils_model import VGG_LOSS
 from keras.models import load_model
@@ -78,11 +78,11 @@ if __name__== "__main__":
     parser = argparse.ArgumentParser()
     
     parser.add_argument('-i', '--input_dir', action='store', dest='input_dir',
-                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/' ,
+                        default='./Matlab-CODE/' ,
                     help='Path for input images')
 
     parser.add_argument('-tgt', '--tgt_dir', action='store', dest='tgt_dir',
-                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/',
+                        default='./Matlab-CODE/' ,
                         help='Path for input images')
                     
     parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./output/' ,
