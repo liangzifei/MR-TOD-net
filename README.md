@@ -50,7 +50,7 @@ The figure below gives examples of coregistered MRI_TOD. Here, we overlap the TO
 
 
 ## 4.2 network training
-Once co-registered MRI and target histological data are ready, use demo_trainingPrep.m in Matlab to prepare training samples for the next step.
+Once co-registered dMRI and TOD data are ready, please run the following steps.
 ### 1) Run training generation code under /Matlab-CODE: Generate_train.m
 Within the code, the user can modify the following part.
 ```
