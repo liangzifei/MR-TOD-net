@@ -51,7 +51,7 @@ The figure below gives examples of coregistered MRI_TOD. Here, we overlap the TO
 
 ## 4.2 network training
 Once co-registered dMRI and TOD data are ready, please run the following steps.
-### 1) Run training generation code under /Matlab-CODE: Generate_train.m
+### 1) Run training generation code under ./Matlab-CODE: Generate_train.m
 Within the code, the user can modify the following part.
 ```
 files = dir('.\Matlab-CODE\Kim');     <--- directory of subject data used for training.
@@ -60,7 +60,7 @@ tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(samp
 ```
 The code will generate and save .npy file for the next step training.
 
-### 2) Run deep learning code under /CODE to train the neural network: train.py
+### 2) Run deep learning code under ./CODE to train the neural network: train.py
 #### We used the pycharm platform to run python code. 
 
 Within the code, the user can modify the following part as their own paths.
@@ -93,7 +93,7 @@ image_shape = (3,3,3, 60)                                      <--- The number o
 After training the saved model will be saved in ./model and our pre-trained model is uploaded online https://osf.io/hda8r/
 
 ## 4.3 network testing
-### 1) Run testing generation code under /Matlab-CODE: Generate_test.m
+### 1) Run testing generation code under ./Matlab-CODE: Generate_test.m
 Within the code, the user can modify the following part as their own paths.
 ```
 files = dir('.\Matlab-CODE\Kim\tJN*');
@@ -109,7 +109,7 @@ slice0 =(repeat-1)*60+41;   <--- we start from slice 41, as those start slices p
 for slice=slice0:slice0+60%. <--- we pick 60 slice voxels for one time. 
 ```
 
-### 2) Run network predication code under /CODE: test.py
+### 2) Run network predication code under ./CODE: test.py
 Users can modify the following as their own paths:
 ```
   parser.add_argument('-ihr', '--input_hig_res', action='store', dest='input_hig_res',
@@ -127,7 +127,7 @@ Users can modify the following as their own paths:
                     help='Path for model')
 ```
 
-### 3) Run the restruction code under /Matlab-CODE: Generate_test_Recon.m
+### 3) Run the restruction code under ./Matlab-CODE: Generate_test_Recon.m
 As the network is voxel-wised processing, it is required to reconstruct the entire 3d TOD map by packing all the voxels to the original subject space.
 Users can modify their own paths:
 ```
