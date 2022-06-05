@@ -61,7 +61,7 @@ tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(samp
 The code will generate and save .npy file for the next step training.
 
 ### 2) Run deep learning code under CODE to train the neural network: Train.py
-> We used the pycharm platform to run python code. Also uploaded our enviroment as ...
+#### We used the pycharm platform to run python code. 
 
 Within the code the user need to modify the following part as their own folders.
 ```
