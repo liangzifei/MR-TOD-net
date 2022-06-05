@@ -50,19 +50,19 @@ if __name__== "__main__":
     parser = argparse.ArgumentParser()
     
     parser.add_argument('-ihr', '--input_hig_res', action='store', dest='input_hig_res',
-                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/',
+                        default='./Matlab-CODE/',
                     help='Path for input images Hig resolution')
                     
     parser.add_argument('-ilr', '--input_low_res', action='store', dest='input_low_res',
-                        default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/',
+                        default='./Matlab-CODE/',
                     help='Path for input images Low resolution')
                     
-    parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./output/',
+    parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./CODE/output/',
                     help='Path for Output images')
     
-    # parser.add_argument('-m', '--model_dir', action='store', dest='model_dir', default='./model/gen_modelTOD500.h5' ,
+    # parser.add_argument('-m', '--model_dir', action='store', dest='model_dir', default='./CODE/model/gen_modelTOD500.h5' ,
     #                 help='Path for model')
-    parser.add_argument('-m', '--model_dir', action='store', dest='model_dir', default='./model/gen_modelTOD700_28channelKimBatch512.h5' ,
+    parser.add_argument('-m', '--model_dir', action='store', dest='model_dir', default='./CODE/model/gen_modelTOD700_28channelKimBatch512.h5' ,
                     help='Path for model')
     # parser.add_argument('-m', '--model_dir', action='store', dest='model_dir', default='./model/gen_modelTOD1700_28channelKim.h5' ,
     #                 help='Path for model')
