@@ -66,28 +66,28 @@ Within the code the user need to modify the following part as their own folders.
 ```
  parser.add_argument('-i', '--input_dir', action='store', dest='input_dir',
                         default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/' ,
-                    help='Path for input images')
+                    help='Path for input images').              <--- The path that saved last step .npy training diffusion data
 
 parser.add_argument('-tgt', '--tgt_dir', action='store', dest='tgt_dir',
                         default='R:/zhangj18lab/zhangj18labspace/Zifei_Data/MouseHuman_proj/DeepNet_Learn/',
-                        help='Path for input images')
+                        help='Path for input images').          <--- The path that saved last step .npy training TOD data
                     
 parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./output/' ,
-                    help='Path for Output images')
+                    help='Path for Output images')              <--- The path that saved output data
     
 parser.add_argument('-m', '--model_save_dir', action='store', dest='model_save_dir', default='./model/' ,
-                    help='Path for model')
+                    help='Path for model')                      <--- The path that saved training model
 ```
-Some additional parameters that can be updated as following:
+Some additional parameters that can be updated as the following:
 
 ```
-    parser.add_argument('-n', '--number_of_images', action='store', dest='number_of_images', default=870000,
-                    help='Number of Images', type= int)
+parser.add_argument('-n', '--number_of_images', action='store', dest='number_of_images', default=870000,
+                    help='Number of Images', type= int).        <--- The number of training samples, should match the last step produced .npy file.
                     
-    parser.add_argument('-r', '--train_test_ratio', action='store', dest='train_test_ratio', default=0.95,
-                    help='Ratio of train and test Images', type=float)
+parser.add_argument('-r', '--train_test_ratio', action='store', dest='train_test_ratio', default=0.95,
+                    help='Ratio of train and test Images', type=float).   <--- The number of samples for validation, here 5% for velidatation.
                     
-    image_shape = (3,3,3, 60)
+image_shape = (3,3,3, 60)                                      <--- The number of gradient direction.
 ```
 
 
