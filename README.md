@@ -54,7 +54,7 @@ Once co-registered MRI and target histological data are ready, use demo_training
 ### 1) Run training generation code under Matlab-CODE: Generate_train.m
 Within the code the user need to modify the following part.
 ```
-files = dir('.\CODE\Kim');     <--- directory of subject data used for training.
+files = dir('.\Matlab-CODE\Kim');     <--- directory of subject data used for training.
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif']).  <--- diffusion data used for training.
 tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(sample_img).name,'.mif']);   <--- target TOD data used for training.
 ```
@@ -95,7 +95,7 @@ After training the saved model will be saved in ./model and our pre-trained mode
 ### 1) Run testing generation code under Matlab-CODE: Generate_test.m
 Within the code the user need to modify the following part as their own folders.
 ```
-files = dir('.\Code\Kim\tJN*');
+files = dir('.\Matlab-CODE\Kim\tJN*');
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
 writeNPY(data,'R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\DeepNet_Learn\test_input.npy');
 ```
