@@ -17,47 +17,22 @@ import numpy as np
 import argparse
 
 np.random.seed(10)
-# Better to use downscale factor as 4
-downscale_factor = 2
 # Remember to change image shape if you are having different size of images
 image_shape = (3,3,3, 60)
 dis_shape = (1,1,1, 28)
 
-# Combined network
-# def get_gan_network(discriminator, shape, generator, optimizer, vgg_loss):
-#     discriminator.trainable = False
-#     gan_input = Input(shape=shape)
-#     x = generator(gan_input)
-#     gan_output = discriminator(x)
-#     gan = Model(inputs=gan_input, outputs=[x,gan_output])
-#     gan.compile(loss=[vgg_loss, "binary_crossentropy"],
-#                 loss_weights=[1., 1e-3],
-#                 optimizer=optimizer)
-#
-#     return gan
 
 # default values for all parameters are given, if want defferent values you can give via commandline
 # for more info use $python train.py -h
 def train(epochs, batch_size, input_dir, tgt_dir, output_dir, model_save_dir, number_of_images, train_test_ratio):
     
     x_train_lr, x_train_hr, x_test_lr, x_test_hr = Utils.load_training_data(input_dir, tgt_dir, '.npy', number_of_images, train_test_ratio)
-    # x_train_lr, x_train_hr, x_test_lr, x_test_hr = Utils.load_training_data(input_dir, '.jpg', number_of_images, train_test_ratio)
-    # x_train_hr = np.expand_dims(x_train_hr, axis=3)
-    # x_test_hr = np.expand_dims(x_test_hr, axis=3)
-    # x_train_hr = np.reshape(x_train_hr,(x_train_hr[0], x_train_hr[1], x_train_hr[2], 1))
-    # x_test_hr = np.reshape(x_test_hr, (x_test_hr[0], x_test_hr[1], x_test_hr[2], 1))
     loss = VGG_LOSS(image_shape)
     batch_count = int(x_train_hr.shape[0] / batch_size)
     shape = (image_shape[0], image_shape[1], image_shape[2], image_shape[3])
     generator = Generator(shape).generator()
-    # model = squeeze(Activation('tanh')(model), 4)
-    # discriminator = Discriminator(dis_shape).discriminator()
     optimizer = Utils_model.get_optimizer()
     generator.compile(loss=loss.vgg_loss, optimizer=optimizer)
-    # discriminator.compile(loss="binary_crossentropy", optimizer=optimizer)
-
-    # # gan = get_gan_network(discriminator, shape, generator, optimizer, loss.vgg_loss)
-    # generator = load_model('K:\SRCNN_deltADC\Pytorch_code\Keras-SRGAN\SR3d\Keras-Resnet-dwi2fod\model\gen_model500.h5', custom_objects={'vgg_loss': loss.vgg_loss})
 
     loss_file = open(model_save_dir + 'losses.txt' , 'w+')
     loss_file.close()
