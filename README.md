@@ -43,3 +43,7 @@ CUDA
 Pytorch (Python 3.6)
 
 # 4. Procedure
+## 4.1 Data Preparation
+MR-TOD takes co-registered Diffusion MRI and target TOD map for training and testing. You can find our 3D diffusion MRI(https://osf.io/hda8r/) and matched TOD link (https://osf.io/3c2xq/). Details on MRI data acquistion, source of Tracer steramlines data, and co-registration steps can be found in our manuscript (doi: https://doi.org/10.1101/2022.06.02.492838). If you plan to use our trained networks without modifications, it is important to use the same image acquisition protocols.
+
+The figure below gives examples of coregistered MRI_histology. Here, we use landmarks to help evaluate the accuracy of registration.
