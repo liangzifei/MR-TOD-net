@@ -51,8 +51,8 @@ The figure below gives examples of coregistered MRI_TOD. Here, we overlap the TO
 
 ## 4.2 network training
 Once co-registered MRI and target histological data are ready, use demo_trainingPrep.m in Matlab to prepare training samples for the next step.
-### 1) Run training generation code under Matlab-CODE: Generate_train.m
-Within the code the user need to modify the following part.
+### 1) Run training generation code under /Matlab-CODE: Generate_train.m
+Within the code, the user can modify the following part.
 ```
 files = dir('.\Matlab-CODE\Kim');     <--- directory of subject data used for training.
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif']).  <--- diffusion data used for training.
@@ -60,10 +60,10 @@ tod_img = read_mrtrix([folder_tod,'\tod_fromtckTODp60_lmax6_to',folder_list(samp
 ```
 The code will generate and save .npy file for the next step training.
 
-### 2) Run deep learning code under CODE to train the neural network: Train.py
+### 2) Run deep learning code under /CODE to train the neural network: Train.py
 #### We used the pycharm platform to run python code. 
 
-Within the code the user need to modify the following part as their own folders.
+Within the code, the user can modify the following part as their own paths.
 ```
  parser.add_argument('-i', '--input_dir', action='store', dest='input_dir',
                         default='./Matlab-CODE/' ,
@@ -93,15 +93,40 @@ image_shape = (3,3,3, 60)                                      <--- The number o
 After training the saved model will be saved in ./model and our pre-trained model is uploaded online https://osf.io/hda8r/
 
 ## 4.3 network testing
-### 1) Run testing generation code under Matlab-CODE: Generate_test.m
-Within the code the user need to modify the following part as their own folders.
+### 1) Run testing generation code under /Matlab-CODE: Generate_test.m
+Within the code, the user can modify the following part as their own paths.
 ```
 files = dir('.\Matlab-CODE\Kim\tJN*');
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
 writeNPY(data,'R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\DeepNet_Learn\test_input.npy');
 ```
-### 2) Run network predication code under CODE: test.py
-### 3) Run the restruction code under Matlab-CODE: Generate_Recon.m
+### 2) Run network predication code under /CODE: test.py
+Users can modify the following as their own paths:
+```
+  parser.add_argument('-ihr', '--input_hig_res', action='store', dest='input_hig_res',
+                        default='./Matlab-CODE/',
+                    help='Path for input images Hig resolution')
+                    
+  parser.add_argument('-ilr', '--input_low_res', action='store', dest='input_low_res',
+                        default='./Matlab-CODE/',
+                    help='Path for input images Low resolution')
+                    
+  parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./CODE/output/',
+                    help='Path for Output images')
+    
+  parser.add_argument('-m', '--model_dir', action='store', dest='model_dir', default='./CODE/model/gen_modelTOD700_28channelKimBatch512.h5' ,
+                    help='Path for model')
+```
+
+### 3) Run the restruction code under /atlab-CODE: Generate_test_Recon.m
+As the network is voxel-wised processing, it is required to reconstruct the entire 3d TOD map by packing all the voxels to the original subject space.
+Users can modify their own paths:
+```
+files = dir('.\Matlab-CODE\Kim\tJN*');
+% Get a logical vector that tells which is a directory.
+folder_list = files;
+folder_dwi =['.\Matlab-CODE\Kim\'];
+```
 
 # License
 MIT License
