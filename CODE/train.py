@@ -85,10 +85,10 @@ if __name__== "__main__":
                         default='./Matlab-CODE/' ,
                         help='Path for input images')
                     
-    parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./output/' ,
+    parser.add_argument('-o', '--output_dir', action='store', dest='output_dir', default='./CODE/output/' ,
                     help='Path for Output images')
     
-    parser.add_argument('-m', '--model_save_dir', action='store', dest='model_save_dir', default='./model/' ,
+    parser.add_argument('-m', '--model_save_dir', action='store', dest='model_save_dir', default='./CODE/model/' ,
                     help='Path for model')
 
     parser.add_argument('-b', '--batch_size', action='store', dest='batch_size', default=512,
