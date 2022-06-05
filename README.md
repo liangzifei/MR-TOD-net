@@ -31,9 +31,15 @@ Our whole-brain streamline fibers was uploaded as https://osf.io/m98wn/
 
 
 Windows 10
+
 Matlab version > 2019b
+
 Deep learning toolbox. https://www.mathworks.com/products/deep-learning.html
+
 nifti toolbox https://www.mathworks.com/matlabcentral/fileexchange/8797-tools-for-nifti-and-analyze-image
+
 CUDA
+
 Pytorch (Python 3.6)
+
 # 4. Procedure
