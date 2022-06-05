@@ -90,12 +90,15 @@ parser.add_argument('-r', '--train_test_ratio', action='store', dest='train_test
 image_shape = (3,3,3, 60)                                      <--- The number of gradient direction.
 ```
 After training the saved model will be saved in ./model and our pre-trained model is uploaded online https://osf.io/hda8r/
-### 3) Run testing generation code under Matlab-CODE: Generate_test.m
+
+## 4.3 network testing
+### 1) Run testing generation code under Matlab-CODE: Generate_test.m
 Within the code the user need to modify the following part as their own folders.
 ```
 files = dir('R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\Kim\tJN*');
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
 writeNPY(data,'R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\DeepNet_Learn\test_input.npy');
 ```
+### 2) Run network predication code under CODE: test.py
+### 3) Run the restruction code under Matlab-CODE: Generate_Recon.m
 
-## 4.3 network testing
