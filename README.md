@@ -47,7 +47,7 @@ Pytorch (Python 3.6)
 ## 4.1 Data Preparation
 MR-TOD takes co-registered Diffusion MRI and target TOD map for training and testing. You can find our 3D diffusion MRI(https://osf.io/hda8r/) and matched TOD link (https://osf.io/3c2xq/). Details on MRI data acquistion, source of Tracer steramlines data, and co-registration steps can be found in our manuscript ([doi: https://doi.org/10.1101/2022.06.02.492838](https://www.biorxiv.org/content/10.1101/2022.06.02.492838v1.full.pdf+html)). If you plan to use our trained networks without modifications, it is important to use the same image acquisition protocols.
 
-The figure below gives examples of coregistered MRI_TOD. Here, we overlap the TOD obtained from Allen tracer streamlines on our subjects.
+The figure below shows three examples of coregistered MRI_TOD. Here, we overlap the TOD obtained from Allen tracer streamlines on our scanned mouse FA map.
 ![](https://github.com/liangzifei/MR-TOD-net/blob/main/Images/TOD_overlap6.png)
 
 ## 4.2 network training
