@@ -5,6 +5,7 @@
 #date            :2018/10/30
 #usage           :from Network import Generator, Discriminator
 #python_version  :3.5.4 
+# Modified by    : Zifei Liang     2022/06/06
 
 # Modules
 from keras.layers import Dense, Dropout
