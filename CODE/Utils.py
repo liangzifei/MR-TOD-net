@@ -5,8 +5,7 @@
 #date            :2018/10/30
 #usage           :imported in other files
 #python_version  :3.5.4
-#Revised data:   2022/03/03
-#Revised Author:  Zifei Liang
+#Modified by Zifei Liang. 2022/06/06
 
 from keras.layers import Lambda
 import tensorflow as tf
