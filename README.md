@@ -5,7 +5,7 @@
 MR-TOD is a deep learning network designed to predict the voxel-wise track orientation distribution (TOD) from diffusion MRI signals. The network is based on a previously published network that predicts fiber orientation distributions (FODs) from diffusion MRI signals (Lin et al. Med. Phys. 2019 46(7):3101-3116. doi: 10.1002/mp.13555). MR-TOD was trained using diffusion MRI data acquired from post-mortem mouse brains and TOD data obtained from viral tracer streamline data in the Allen mouse brain connectivity atlas (https://connectivity.brain-map.org). Details on the network can be found in our manuscript on biorxiv (doi: https://doi.org/10.1101/2022.06.02.492838). 
 
 ### The workflow of MR-TOD-net
-![](https://github.com/liangzifei/MR-TOD-net/blob/main/Images/MRTod_flow.jpg)
+![](https://github.com/liangzifei/MR-TOD-net/blob/main/Images/MRTod_flow.jpg) .
 
 Fig. 1: The workflow of MR-TOD-Net. The basic network was trained using co-registered 3D Diffusion MRI and TOD map from Allen mouse connectivity project. The TOD map was generated from Allen tracer streamlines from more than 2700 subjects (https://connectivity.brain-map.org/).
 
