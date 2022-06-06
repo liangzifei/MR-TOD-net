@@ -18,7 +18,7 @@ Our trained model uploaded and can be found at https://osf.io/hda8r/
 
 2. Train you own neural network:
 
-The spacial matched dMRI and TOD data is uploaded. It is provided to train new neural networks. 
+The spacial matched dMRI and TOD data are uploaded, which are provided to train new neural networks. 
 
 The target TOD is provided as https://osf.io/3c2xq/
 
