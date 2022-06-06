@@ -64,7 +64,7 @@ The code will generate and save .npy file for the next step training.
 ### 2) Run deep learning code under ./CODE to train the neural network: train.py
 #### We used the pycharm platform to run python code. 
 
-Within the code, the user can modify the following part as their own paths.
+Within the code, the user can modify the following part for their own paths.
 ```
  parser.add_argument('-i', '--input_dir', action='store', dest='input_dir',
                         default='./Matlab-CODE/' ,
@@ -95,7 +95,7 @@ After training the saved model will be saved in ./model and our pre-trained mode
 
 ## 4.3 network testing
 ### 1) Run testing generation code under ./Matlab-CODE: Generate_test.m
-Within the code, the user can modify the following part as their own paths.
+Within the code, the user can modify the following part for their own paths.
 ```
 files = dir('.\Matlab-CODE\Kim\tJN*');
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
@@ -111,7 +111,7 @@ for slice=slice0:slice0+60%. <--- we pick 60 slice voxels for one time.
 ```
 
 ### 2) Run network predication code under ./CODE: test.py
-Users can modify the following as their own paths:
+Users can modify the following for their own paths:
 ```
   parser.add_argument('-ihr', '--input_hig_res', action='store', dest='input_hig_res',
                         default='./Matlab-CODE/',
@@ -130,7 +130,7 @@ Users can modify the following as their own paths:
 
 ### 3) Run the restruction code under ./Matlab-CODE: Generate_test_Recon.m
 As the network is voxel-wised processing, it is required to reconstruct the entire 3d TOD map by packing all the voxels to the original subject space.
-Users can modify their own paths:
+Users can modify the code for their own paths:
 ```
 files = dir('.\Matlab-CODE\Kim\tJN*');
 % Get a logical vector that tells which is a directory.
