@@ -12,9 +12,9 @@ Fig. 1: The workflow of MR-TOD-Net. The basic network was trained using co-regis
 # 2. How to use MR-TOD-Net?
 1. Predict the TOD from diffusion MRI without training:
 
-Use our trained deep neural networks to predict FOD from RAW diffusion MRI signals, by input the same graindient scanned data.
+Use our pre-trained neural networks to predict TOD from RAW diffusion MRI data, the diffusion gradient table can be found under ./Data acquisition.
 
-Our trained model uploaded as https://osf.io/hda8r/
+Our trained model uploaded and can be found at https://osf.io/hda8r/
 
 2. Train you own neural network:
 
