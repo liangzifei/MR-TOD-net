@@ -101,7 +101,7 @@ files = dir('.\Matlab-CODE\Kim\tJN*');
 dwi5000 = read_mrtrix([folder_dwi,folder_list(sample_img).name,'\rawdata1.mif'])
 writeNPY(data,'R:\zhangj18lab\zhangj18labspace\Zifei_Data\MouseHuman_proj\DeepNet_Learn\test_input.npy');
 ```
-As the PC memory sometimes limited, process all voxels in oneset might be impossible. Here we pick one slab containing only 60 slices one time.
+As the PC memory sometimes limited, process all voxels in oneset might be impossible. Here we pick one slab containing only 60 slices for one time.
 Users can update the code according their own PC memory.
 ```
 repeat = 1;    <--- repeat is the slab number
